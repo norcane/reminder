@@ -13,6 +13,9 @@ Were you ever forced to do some _quick&dirty_ changes or hot fixes to your codeb
   @reminder("2000-02-02")       // <-- will cause compile error
   def someDirtyImplementation() = { ... }
   
+  @reminder("dsfwefioh")       // <-- invalid date format will also cause compile error
+  def someDirtyImplementation() = { ... }
+  
   @reminder("2200/02/02", dateFormat = "yyyy/MM/dd")       // <-- using custom date format
   def someDirtyImplementation() = { ... }
   
