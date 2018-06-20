@@ -8,13 +8,13 @@ Were you ever forced to do some _quick&dirty_ changes or hot fixes to your codeb
   import com.norcane.reminder
   
   @reminder("2200-02-02")       // <-- will compile, you have plenty of time to review this
-  def someDirtyImplementation() { ... }
+  def someDirtyImplementation() = { ... }
   
   @reminder("2000-02-02")       // <-- will cause compile error
-  def someDirtyImplementation() { ... }
+  def someDirtyImplementation() = { ... }
   
   @reminder("2200/02/02", dateFormat = "yyyy/MM/dd")       // <-- using custom date format
-  def someDirtyImplementation() { ... }
+  def someDirtyImplementation() = { ... }
   
   @reminder("2200/02/02", "I really need to fix this")     // <-- using custom message
   class ReallyUglyStuff() { ... }
