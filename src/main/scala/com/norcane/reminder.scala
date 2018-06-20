@@ -36,7 +36,7 @@ import scala.util.{Failure, Success, Try}
 class reminder(date: String, note: String = Defaults.note, dateFormat: String = Defaults.dateFormat)
   extends StaticAnnotation {
 
-  def macroTransform(annottees: Any*): Any = macro RememberMacros.impl
+  def macroTransform(annottees: Any*): Any = macro ReminderMacros.impl
 }
 
 object reminder {
@@ -48,11 +48,11 @@ object reminder {
 
 }
 
-private[this] object RememberMacros {
+private[this] object ReminderMacros {
   def impl(c: blackbox.Context)(annottees: c.Expr[Any]*): c.Expr[Any] = {
     import c.universe._
 
-    implicit def treeTostring(tree: Tree): String =
+    implicit def tree2string(tree: Tree): String =
       c.eval(c.Expr[String](c.untypecheck(tree.duplicate)))
 
     def extract(date: String, note: String = Defaults.note, dateFormat: String = Defaults.dateFormat) =
