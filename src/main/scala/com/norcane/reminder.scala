@@ -1,3 +1,17 @@
+/*
+ * @reminder :: say goodbye to forgotten TODOs in your codebase!
+ * Copyright (c) 2018 norcane
+ * ---
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
 package com.norcane
 
 import java.text.SimpleDateFormat
@@ -9,6 +23,15 @@ import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.reflect.macros.blackbox
 import scala.util.{Failure, Success, Try}
 
+/**
+  * Use this annotation to mark a part of your code you want to revisit in the future (temporary
+  * solution, quick&dirty hacks). After the date you select, this code won't longer compile, forcing
+  * you to review it again.
+  *
+  * @param date       date until when the part of the code must be revisited
+  * @param note       optional reminder note (used as part of the compilation error)
+  * @param dateFormat format used for parsing the date (default is ''yyyy-MM-dd'')
+  */
 @compileTimeOnly("enable macro paradise to expand macro annotations")
 class reminder(date: String, note: String = Defaults.note, dateFormat: String = Defaults.dateFormat)
   extends StaticAnnotation {
@@ -56,8 +79,7 @@ private[this] object RememberMacros {
       case q"new reminder($date, $note)" =>
         extract(date, note)
       case _ =>
-        c.abort(
-          c.enclosingPosition,
+        c.abort(c.enclosingPosition,
           "POSSIBLE BUG: unexpected annotation parameters order/combination")
     }
 
