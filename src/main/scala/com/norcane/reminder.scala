@@ -64,15 +64,11 @@ private[this] object RememberMacros {
     // parse date from input string using the selected date format
     parseDate(date, dateFormat) match {
       case Success(parsedDate) =>
-        if (!today.before(parsedDate)) { // date in past, interrupt compilation with message
+        if (parsedDate.getTime < System.currentTimeMillis())
           c.abort(c.enclosingPosition, note)
-        } else { // reminder date still in future, keep everything as is
-          annottees.head
-        }
+        else annottees.head
       case Failure(_) => // cannot parse reminder date using selected date format
-        c.abort(
-          c.enclosingPosition,
-          s"Cannot parse date '$date' using selected format '$dateFormat'")
+        c.abort(c.enclosingPosition, s"Cannot parse date '$date' using selected format '$dateFormat'")
     }
   }
 
