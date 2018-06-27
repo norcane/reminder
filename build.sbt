@@ -1,6 +1,32 @@
-name := "reminder"
 
-version := "0.1.0-SNAPSHOT"
+// Project details
+name := "reminder"
+description := "Say goodbye to forgotten TODOs in your code!"
+version in Global := "0.1.0-SNAPSHOT"
+organization in Global := "com.norcane"
+licenses in Global += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
+homepage in Global := Some(url("https://github.com/norcane/reminder"))
+
+// More info for Maven Central
+developers in Global := List(
+  Developer(
+    id = "vaclav.svejcar",
+    name = "Vaclav Svejcar",
+    email = "vaclav.svejcar@gmail.com",
+    url = url("https://github.com/vaclavsvejcar")
+  )
+)
+
+scmInfo in Global := Some(
+  ScmInfo(
+    url("https://github.com/norcane/reminder"),
+    "scm:git@github.com:norcane/reminder.git"
+  )
+)
+
+// Bintray configuration
+bintrayOrganization := Some("norcane")
+bintrayRepository := "reminder"
 
 scalaVersion := "2.12.6"
 crossScalaVersions := Seq("2.11.12", "2.12.6")
@@ -14,6 +40,10 @@ addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.fu
 
 scalacOptions ++= Seq(
   "-deprecation",
+  "-feature",
+  "-language:higherKinds",
+  "-language:implicitConversions",
   "-language:experimental.macros",
-  "-language:implicitConversions"
+  "-unchecked",
+  "-Ypartial-unification"
 )
