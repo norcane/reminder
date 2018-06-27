@@ -3,6 +3,20 @@
 
 Were you ever forced to do some _quick&dirty_ changes or hot fixes to your codebase telling yourself you will review this part of code later? Are code comments like `//TODO make this better` or `//FIXME bring some sanity to this` familiar to you? Once you put these comment in your codebase, it's easy to forget about them. Time to say goodbye to them and introduce the `@reminder` annotation! Simply put this annotation to the code you want to revisit in future and after selected date, this code won't compile anymore, forcing you (or your colleagues) to review it.
 
+## Make it a part of your project
+Add following definitions to `build.sbt`:
+```scala
+  // enable macro paradise plugin
+  addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
+  
+  // add the Bintray resolver
+  resolvers += Resolver.bintrayRepo("norcane", "reminder")
+  
+  // add reminder as dependency
+  libraryDependencies += "com.norcane" %% "reminder" % "0.1.0"
+```
+At this moment, *reminder* is cross compiled for Scala 2.11 and 2.12.
+
 ## Show me the code!
 ```scala
   import com.norcane.reminder
