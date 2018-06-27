@@ -2,7 +2,7 @@
 // Project details
 name := "reminder"
 description := "Say goodbye to forgotten TODOs in your code!"
-version in Global := "0.1.0-SNAPSHOT"
+version in Global := "0.1.0"
 organization in Global := "com.norcane"
 licenses in Global += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
 homepage in Global := Some(url("https://github.com/norcane/reminder"))
