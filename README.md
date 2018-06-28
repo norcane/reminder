@@ -47,4 +47,4 @@ Below is the definition of the `@reminder` annotation, with corresponding defaul
 Feel free to combine parameters as required.
 
 ## What kind of sorcery is this?
-The `@reminder` annotation is implemented as [Scala Macro Annotation](https://docs.scala-lang.org/overviews/macros/annotations.html), using the [Macro Paraside](https://github.com/scalamacros/paradise) compiler plugin. In fact, it does nothing more than that it compares the current date and the date you set as the annotation parameter and if the set date is in past, it will cause compiler error.
+The `@reminder` annotation is implemented as [Scala Macro Annotation](https://docs.scala-lang.org/overviews/macros/annotations.html), using the [Macro Paradise](https://github.com/scalamacros/paradise) compiler plugin. In fact, it does nothing more than that it compares the current date and the date you set as the annotation parameter and if the set date is in past, it will cause compiler error.
