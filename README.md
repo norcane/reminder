@@ -1,3 +1,5 @@
+<p align="center"><img src ="https://github.com/norcane/reminder/blob/master/assets/logo.png?raw=true" width="200" /></p>
+
 # reminder
 **Say goodbye to forgotten TODOs in your code!**
 
@@ -6,16 +8,19 @@ Were you ever forced to do some _quick&dirty_ changes or hot fixes to your codeb
 ## Make it a part of your project
 Add following definitions to `build.sbt`:
 ```scala
-  // enable macro paradise plugin
+  // 1a. enable macros for your project (Scala 2.13+ only)
+  scalacOptions += "-Ymacro-annotations"
+
+  // 1b. enable macros for your project (Scala 2.11, 2.12 only)
   addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
   
-  // add the Bintray resolver
+  // 2. add the Bintray resolver
   resolvers += Resolver.bintrayRepo("norcane", "reminder")
   
-  // add reminder as dependency
-  libraryDependencies += "com.norcane" %% "reminder" % "0.1.0"
+  // 3. add reminder as dependency
+  libraryDependencies += "com.norcane" %% "reminder" % "0.2.0"
 ```
-At this moment, *reminder* is cross compiled for Scala 2.11 and 2.12.
+At this moment, *reminder* is cross compiled for Scala 2.11, 2.12 and 2.13.
 
 ## Show me the code!
 ```scala
