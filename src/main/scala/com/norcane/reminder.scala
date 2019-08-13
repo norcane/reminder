@@ -1,6 +1,6 @@
 /*
  * @reminder :: say goodbye to forgotten TODOs in your codebase!
- * Copyright (c) 2018 norcane
+ * Copyright (c) 2018-2019 norcane
  * ---
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -34,7 +34,7 @@ import scala.util.{Failure, Success, Try}
   */
 @compileTimeOnly("enable macro paradise to expand macro annotations")
 class reminder(date: String, note: String = Defaults.note, dateFormat: String = Defaults.dateFormat)
-  extends StaticAnnotation {
+    extends StaticAnnotation {
 
   def macroTransform(annottees: Any*): Any = macro ReminderMacros.impl
 }
@@ -79,8 +79,7 @@ private[this] object ReminderMacros {
       case q"new reminder($date, $note)" =>
         extract(date, note)
       case _ =>
-        c.abort(c.enclosingPosition,
-          "POSSIBLE BUG: unexpected annotation parameters order/combination")
+        c.abort(c.enclosingPosition, "POSSIBLE BUG: unexpected annotation parameters order/combination")
     }
 
     // parse date from input string using the selected date format
