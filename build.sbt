@@ -2,7 +2,7 @@
 // Project details
 name := "reminder"
 description := "Say goodbye to forgotten TODOs in your code!"
-version in Global := "0.1.0"
+version in Global := "0.2.0-SNAPSHOT"
 organization in Global := "com.norcane"
 licenses in Global += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
 homepage in Global := Some(url("https://github.com/norcane/reminder"))
@@ -28,12 +28,12 @@ scmInfo in Global := Some(
 bintrayOrganization := Some("norcane")
 bintrayRepository := "reminder"
 
-scalaVersion := "2.12.8"
-crossScalaVersions := Seq("2.11.12", "2.12.8")
+scalaVersion := "2.12.9"
+crossScalaVersions := Seq("2.11.12", "2.12.9")
 
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value,
-  "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.8" % "test"
 )
 
 addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
