@@ -2,7 +2,7 @@
 // Project details
 name := "reminder"
 description := "Say goodbye to forgotten TODOs in your code!"
-Global / version := "0.2.0-SNAPSHOT"
+Global / version := "0.2.0"
 Global / organization := "com.norcane"
 Global / licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
 Global / homepage := Some(url("https://github.com/norcane/reminder"))
@@ -33,7 +33,7 @@ crossScalaVersions := Seq("2.11.12", "2.12.9", "2.13.0")
 
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value,
-  "org.scalatest" %% "scalatest" % "3.0.8" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.8" % Test
 )
 
 Global / scalacOptions ++= Seq(
