@@ -28,8 +28,8 @@ Global / scmInfo := Some(
 bintrayOrganization := Some("norcane")
 bintrayRepository := "reminder"
 
-scalaVersion := "2.12.9"
-crossScalaVersions := Seq("2.11.12", "2.12.9", "2.13.0")
+scalaVersion := "2.12.10"
+crossScalaVersions := Seq("2.11.12", "2.12.10", "2.13.1")
 
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value,
